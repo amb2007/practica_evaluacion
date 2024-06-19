@@ -3,7 +3,10 @@ import './App.css';
 import ShoppingForm from './ShoppingForm';
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState({
+    producto: '',
+    tipo: ''
+  });
 
   const addItem = (item) => {
     setItems([...items, item]);

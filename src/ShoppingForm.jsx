@@ -10,16 +10,27 @@ function ShoppingForm(props) {
     props.addItem(newElement);
     // Vaciar el estado "newElement"
   };
-
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+    ...items,
+    [name]: value
+    });
+  };
   // función que modifica el estado "newElement" al ingresar valores en el formulario
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* input para colocar el nombre del item */}
-      {/* input para colocar la categoría del producto */}
+      <input
+        type="text"
+        id = 'producto'
+        value={items.producto}
+        onChange={handleChange}
+        name="nombre"
+      />
       <button type="submit">Agregar</button>
     </form>
   );
-}
+};
 
 export default ShoppingForm;
